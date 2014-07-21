@@ -1,0 +1,293 @@
+/* ***** BEGIN LICENSE BLOCK *****
+Copyright 2012 CZ.NIC, z.s.p.o.
+
+Authors: Martin Straka <martin.straka@nic.cz>
+
+This file is part of DNSSEC Validator 2.0 Add-on.
+
+DNSSEC Validator 2.0 Add-on is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+DNSSEC Validator 2.0 Add-on is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+DNSSEC Validator 2.0 Add-on.  If not, see <http://www.gnu.org/licenses/>.
+***** END LICENSE BLOCK ***** */
+
+/*TLSA success*/
+#tlsa-box.dm_vs0 > #tlsa-icon,
+#tlsa-box.dm_vs1 > #tlsa-icon,
+#tlsa-box.dm_vs2 > #tlsa-icon,
+#tlsa-box.dm_vs3 > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_valid.png"); /* 19x19 */
+}
+/*TLSA false*/
+#tlsa-box.dm_vf > #tlsa-icon,
+#tlsa-box.dm_vf0 > #tlsa-icon,
+#tlsa-box.dm_vf1 > #tlsa-icon,
+#tlsa-box.dm_vf2 > #tlsa-icon,
+#tlsa-box.dm_vf3 > #tlsa-icon,
+#tlsa-box.dm_dnssecbogus > #tlsa-icon,
+#tlsa-box.dm_tlsapramwrong > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_invalid.png"); /* 19x19 */
+}
+
+
+#tlsa-box.dm_errorgeneric > #tlsa-icon,
+#tlsa-box.dm_error > #tlsa-icon,
+#tlsa-box.dm_error > #tlsa-icon,
+#tlsa-box.dm_wrongres > #tlsa-icon,
+#tlsa-box.dm_rfesolverfailed > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_error.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_validationoff > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_off.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_nohttps > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_nohttps.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_dnssecunsecured > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_nodnssec.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_notlsarecord > #tlsa-icon{
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_no.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_action > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_action.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_certerr > #tlsa-icon,
+#tlsa-box.dm_certchain > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_orange.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_nxdomain > #tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_init.png"); /* 19x19 */
+}
+
+#tlsa-box.dm_inaction {
+  display: none;
+}
+
+/* tlsa indicator */
+#tlsa-outerbox {
+  -moz-box-align: center;
+}
+
+#tlsa-box {
+  width: 19px;
+  height: 19px;
+  padding: 0px 2px;
+/*  background-color: rgba(221, 221, 221, 1.0);   grey */
+/*  background-color: -moz-dialog; */
+/*  color: -moz-dialogtext; */
+/*  -moz-border-end: 1px solid ThreeDShadow; */
+}
+
+
+#tlsa-box:focus {
+  outline: 1px dotted -moz-DialogText;
+}
+
+
+/*-----------------------------------------------------*/
+/*----------------------POPUP--------------------------*/
+
+/* tlsa popup images */
+#tlsa-popup-icon {
+  padding: 0;
+}
+
+/* tlsa popup bounding box - title */
+#tlsa-popup-container {
+  min-width: 280px;
+  padding: 10px;
+  max-width: 400px;
+}
+
+/* green */
+#tlsa-popup.dm_vs0 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vs1 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vs2 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vs3 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_valid.png"); 
+}
+
+/* error */
+
+#tlsa-popup.dm_errorgeneric > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_error > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_rfesolverfailed > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_wrongres > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_error.png");
+}
+
+/* red */
+#tlsa-popup.dm_vf > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vf0 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vf1 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vf2 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_dnssecbogus > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_tlsapramwrong > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_vf3 > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_invalid.png"); 
+}
+
+/* off */
+#tlsa-popup.dm_validationoff > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_off.png"); 
+}
+
+/* nxdomain */
+#tlsa-popup.dm_nxdomain > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_init.png"); 
+}
+
+/* no dnssec */
+#tlsa-popup.dm_dnssecunsecured > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_nodnssec.png"); 
+}
+
+/* nohttps */
+#tlsa-popup.dm_nohttps > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_nohttps.png"); 
+}
+
+/* cert error */
+#tlsa-popup.dm_notlsarecord > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_no.png"); 
+}
+
+/* cert error */
+#tlsa-popup.dm_certerr > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon,
+#tlsa-popup.dm_certchain > #tlsa-popup-container > #tlsa-popup-content-box > #tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_orange.png"); 
+}
+
+
+/* tlsa popup body text - title */
+#tlsa-popup-content-box > label,
+#tlsa-popup-content-box > description {
+  white-space: pre-wrap;
+  padding-left: 0px;
+  margin: 0px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#tlsa-popup-content-box2 > label,
+#tlsa-popup-content-box2 > description {
+  white-space: pre-wrap;
+  padding-left: 10px;
+  margin: 0px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#tlsa-popup-content-box3 > label,
+#tlsa-popup-content-box3 > description {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0px;
+  min-width: 280px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#tlsa-popup-content-box4 > label,
+#tlsa-popup-content-box4 > description {
+  margin: 0px;
+  min-width: 280px;
+  max-width: 335px;
+}
+
+
+/* label text style */
+#tlsa-popup-security-label {
+  font-weight: bold;
+  max-width: 335px;
+  font-size: 120%;
+  display: block;
+}
+
+/* message text style */
+#tlsa-popup-domainLabel,
+#tlsa-popup-nodomainLabel,
+#tlsa-popup-securedDomainLabel,
+#tlsa-popup-unsecuredDomainLabel {
+  display: none;
+}
+
+/* domain name text style */
+#tlsa-popup-content-host {
+  font-weight: bold;
+  max-width: 335px;
+}
+
+/* domain name text style */
+#tlsa-popup-content-host-text {
+}
+
+/* tlsa popup bounding box - title */
+#tlsa-popup-container {
+  min-width: 280px;
+  padding: 0px;
+  max-width: 335px;
+}
+
+#tlsa-popup-homepage {
+  padding-top: 8px;
+  font-size: 90%;
+}
+
+
+#tlsa-popup-ipbrowser-title {
+  padding-top: 8px;
+  font-size: 90%;
+}
+
+#tlsa-popup-ipvalidator-title {
+  padding-top: 5px;
+  font-size: 90%;
+}
+
+#tlsa-popup-ipbrowser-ip {
+  font-weight: bold;
+  font-size: 90%;
+}
+
+#tlsa-popup-ipvalidator-ip {
+  font-weight: bold;
+  font-size: 90%;
+}
+

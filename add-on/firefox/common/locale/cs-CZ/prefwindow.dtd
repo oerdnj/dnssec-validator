@@ -1,0 +1,50 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+Copyright 2012 CZ.NIC, z.s.p.o.
+
+Authors: Martin Straka <martin.straka@nic.cz>
+
+This file is part of DNSSEC Validator 2.0 Add-on.
+
+DNSSEC Validator 2.0 Add-on is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+DNSSEC Validator 2.0 Add-on is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+DNSSEC Validator 2.0 Add-on.  If not, see <http://www.gnu.org/licenses/>.
+***** END LICENSE BLOCK ***** -->
+
+<!ENTITY prefwindow.title "Nastavení validátoru">
+<!ENTITY groupboxdnsserver.label "Nastavení resolveru">
+<!ENTITY radiogroupdnsserver.label "DNS resolver(y) používané pro překlad jmen:">
+<!ENTITY radiodnsserversystem.label "Načíst ze systému">
+<!ENTITY radiodnsserversystem.accesskey "N">
+<!ENTITY radiodnsserverpreset.label "DNSSEC validující resolvery:">
+<!ENTITY radiodnsserverpreset.accesskey "D">
+<!ENTITY menuitemdnsservercznic.label "CZ.NICu">
+<!ENTITY menuitemdnsserveroarc.label "OARCu">
+<!ENTITY radiodnsserveropt.label "Vlastní:">
+<!ENTITY radiodnsserveropt.accesskey "V">
+<!ENTITY radiodnsserverunbound.label "Bez resolveru">
+<!ENTITY radiodnsserverunbound.accesskey "B">
+<!ENTITY dnssecbutton.label "Test současného nastavení">
+<!ENTITY groupboxfilter.label "Domény vyřazené z validace">
+<!ENTITY usefilter.label "Nevalidovat domény uvedené v seznamu">
+<!ENTITY usefilter.accesskey "e">
+<!ENTITY filtertext.label "Seznam vyřazených domén a TLD (oddělené čárkami)">
+<!ENTITY groupboxtlsa.label "Nastavení TLSA validace">
+<!ENTITY tlsaonoff.label "Povolit validaci TLSA záznamů">
+<!ENTITY tlsaonoff.accesskey "T">
+<!ENTITY tlsablock.label "Povolit blokování HTTPS spojení TLSA validátorem">
+<!ENTITY tlsablock.accesskey "H">
+<!ENTITY checkallhttps.label "Povolit TLSA validaci všech HTTPS spojení na stránce">
+<!ENTITY checkallhttps.accesskey "A">
+<!ENTITY clearcache.label "Vymazat mezipaměť prohlížeče při každém spuštění">
+<!ENTITY clearcache.accesskey "m">
+<!ENTITY usebrowsercertchain.label "Použít řětězec certifikátů prohlížeče">
+<!ENTITY usebrowsercertchain.accesskey "c">
