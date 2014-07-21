@@ -19,7 +19,7 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 # main packaging script based on dh7 syntax
 %:
-	dh $@ --with xul-ext,autoreconf,autotools-dev --parallel
+	dh $@ --with xul-ext --parallel
 
 override_dh_install:
 	install-xpi dnssec.xpi
