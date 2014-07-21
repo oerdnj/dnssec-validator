@@ -3,7 +3,8 @@ Section: unknown
 Priority: optional
 Maintainer: Ondřej Surý <ondrej@debian.org>
 Build-Depends: debhelper (>= 9),
-	       cmake (>= 2.6),
+	       autotools-dev,
+	       dh-autoreconf,
 	       libldns-dev,
 	       libssl-dev,
 	       libunbound-dev
