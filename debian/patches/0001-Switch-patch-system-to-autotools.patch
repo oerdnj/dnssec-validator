@@ -5,7 +5,7 @@ Subject: Switch patch system to autotools
 ---
  CMakeLists.txt                                   |  133 -
  MSVS-build.bat                                   |    3 -
- Makefile.am                                      |  179 +
+ Makefile.am                                      |  181 +
  Makefile.freebsd                                 |   28 -
  Makefile.layout                                  |   51 -
  Makefile.libwin                                  |   62 -
@@ -43,7 +43,7 @@ Subject: Switch patch system to autotools
  m4/lt~obsolete.m4                                |   98 +
  plugin-source/config.h.in                        |  202 +
  xpi.sh                                           |  142 -
- 40 files changed, 26109 insertions(+), 2113 deletions(-)
+ 40 files changed, 26111 insertions(+), 2113 deletions(-)
  delete mode 100644 CMakeLists.txt
  delete mode 100644 MSVS-build.bat
  create mode 100644 Makefile.am
@@ -236,10 +236,10 @@ index 0c70084..0000000
 \ No newline at end of file
 diff --git a/Makefile.am b/Makefile.am
 new file mode 100644
-index 0000000..7d2e49a
+index 0000000..3fb15c2
 --- /dev/null
 +++ b/Makefile.am
-@@ -0,0 +1,179 @@
+@@ -0,0 +1,181 @@
 +ACLOCAL_AMFLAGS = -I m4
 +
 +all: dnssec.xpi
@@ -247,7 +247,7 @@ index 0000000..7d2e49a
 +AM_CPPFLAGS = \
 +        -include $(top_builddir)/plugin-source/config.h
 +
-+lib_LTLIBRARIES = libDNSSECcore.la libDANEcore.la
++EXTRA_LTLIBRARIES = libDNSSECcore.la libDANEcore.la
 +
 +libDNSSECcore_la_CFLAGS =					\
 +	-I$(top_srcdir)/plugin-source/common/
@@ -270,7 +270,8 @@ index 0000000..7d2e49a
 +endif
 +
 +libDNSSECcore_la_LDFLAGS =					\
-+	-export-symbols-regex '^(dnssec)_'
++	-export-symbols-regex '^(dnssec)_'			\
++	-avoid-version
 +
 +libDANEcore_la_CFLAGS =						\
 +	-Iplugin-source/common/
@@ -300,7 +301,8 @@ index 0000000..7d2e49a
 +endif
 +
 +libDANEcore_la_LDFLAGS =					\
-+	-export-symbols-regex '^(dane)_'
++	-export-symbols-regex '^(dane)_'			\
++	-avoid-version
 +
 +de_DE_LOCALE = \
 +	add-on/firefox/common/locale/de-DE/prefwindow.dtd	\
