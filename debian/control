@@ -1,20 +1,32 @@
 Source: dnssec-validator
-Section: unknown
+Section: web
 Priority: optional
-Maintainer: Ondřej Surý <ondrej@debian.org>
+Maintainer: Debian Mozilla Extension Maintainers <pkg-mozext-maintainers@lists.alioth.debian.org>
+Uploaders: Ondřej Surý <ondrej@debian.org>,
+	   David Prévot <taffit@debian.org>
 Build-Depends: debhelper (>= 9),
 	       autotools-dev,
 	       dh-autoreconf,
 	       libldns-dev,
 	       libssl-dev,
-	       libunbound-dev
+	       libunbound-dev,
+	       mozilla-devscripts
 Standards-Version: 3.9.5
 Homepage: https://www.dnssec-validator.cz/
-#Vcs-Git: git://anonscm.debian.org/collab-maint/dnssec-validator.git
-#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/dnssec-validator.git;a=summary
+Vcs-git: git://anonscm.debian.org/pkg-mozext/xul-ext-dnssec-validator.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-mozext/xul-ext-dnssec-validator.git
 
-Package: xul-dnssec-validator
+Package: xul-ext-dnssec-validator
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${shlibs:Depends},
+	 ${misc:Depends},
+	 ${xpi:Depends},
+Breaks: ${xpi:Breaks}
+Recommends: ${xpi:Recommends}
+Enhances: ${xpi:Enhances}
+Provides: ${xpi:Provides}
+Description: DNSSEC validator
+ Add-on for web browsers, which allows to check the existence and validity of
+ DNSSEC DNS records for visited domain names. The result of DNSSEC validation
+ is displayed using colour keys and information texts in the page’s address
+ bar. Clicking on the given key will reveal detailed security information.
