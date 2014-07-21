@@ -1,0 +1,19 @@
+Source: dnssec-validator
+Section: unknown
+Priority: optional
+Maintainer: Ondřej Surý <ondrej@debian.org>
+Build-Depends: debhelper (>= 9),
+	       cmake (>= 2.6),
+	       libldns-dev,
+	       libssl-dev,
+	       libunbound-dev
+Standards-Version: 3.9.5
+Homepage: https://www.dnssec-validator.cz/
+#Vcs-Git: git://anonscm.debian.org/collab-maint/dnssec-validator.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/dnssec-validator.git;a=summary
+
+Package: xul-dnssec-validator
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

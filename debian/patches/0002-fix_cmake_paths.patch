@@ -1,0 +1,78 @@
+--- dnssec-validator.orig/CMakeLists.txt
++++ dnssec-validator/CMakeLists.txt
+@@ -115,7 +115,7 @@ ADD_CUSTOM_TARGET(RecursiveBuild ALL)
+ # Calling Makefile.main passing the set variables on command line
+ ADD_CUSTOM_COMMAND(TARGET RecursiveBuild 
+     COMMAND ${MAKE_CMD} 
+-    ARGS -f Makefile.main 
++    ARGS -f ${CMAKE_SOURCE_DIR}/Makefile.main 
+         LIB_CFLAGS=${LIB_CFLAGS}
+         OPENSSL_ARGS=${OPENSSL_ARGS} 
+         CONFIGURE_ARGS=${CONFIGURE_ARGS} 
+@@ -130,4 +130,5 @@ ADD_CUSTOM_COMMAND(TARGET RecursiveBuild
+ 	STATIC_LINKING=${STATIC_LINKING}
+ 	INCLUDE_LOC=${INCLUDE_LOC}
+ 	LIBRARY_LOC=${LIBRARY_LOC}
++	CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR}
+     )
+--- dnssec-validator.orig/Makefile.linux
++++ dnssec-validator/Makefile.linux
+@@ -25,4 +25,4 @@ OSNAME_LC = linux
+ MAKE_CMD = make
+ SHELL_CMD = bash
+ 
+-include Makefile.unix
++include $(CMAKE_SOURCE_DIR)/Makefile.unix
+--- dnssec-validator.orig/Makefile.unix
++++ dnssec-validator/Makefile.unix
+@@ -36,7 +36,7 @@ EXTENSION_VERSION = $(shell cat Version)
+ EXTENSION_VERSION_CR = $(shell cut -c 1-5 Version)
+ 
+ 
+-include Makefile.layout
++include $(CMAKE_SOURCE_DIR)/Makefile.layout
+ 
+ 
+ OSNAME ?= UNIX
+--- dnssec-validator.orig/core_js-ctypes/Makefile
++++ dnssec-validator/core_js-ctypes/Makefile
+@@ -22,7 +22,7 @@
+ 
+ .PHONY: all clean
+ 
+-include ../Makefile.layout
++include $(CMAKE_SOURCE_DIR)/Makefile.layout
+ 
+ 
+ OSNAME ?= UNIX
+--- dnssec-validator.orig/Makefile.main
++++ dnssec-validator/Makefile.main
+@@ -6,7 +6,7 @@ CFLAGS=-fPIC
+ export CFLAGS
+ 
+ # Sets location variables.
+-include Makefile.layout
++include $(CMAKE_SOURCE_DIR)/Makefile.layout
+ 
+ # Different NPAPI plugin names based on OS
+ # PLUGIN_BINARY_TREE is necessary because Mac has dirtree structure instead of
+@@ -67,15 +67,15 @@ PLUGIN_CONFIGURATION ?= MinSizeRel
+ 
+ # Build the plug-in.
+ plugin:
+-	CFLAGS="$(CFLAGS)" $(MAKE_CMD) -f $(MAKE_OS) OSNAME=$(OSNAME) OSNAME_LC=$(OSNAME_LC) HWARCH=$(HWARCH) MAKE_CMD=$(MAKE_CMD) INCLUDE_LOC=$(INCLUDE_LOC) LIBRARY_LOC=$(LIBRARY_LOC) STATIC_LINKING=$(STATIC_LINKING) $(CORE_TGT)
+-	CFLAGS="$(CFLAGS)" $(MAKE_CMD) -f $(MAKE_OS) OSNAME=$(OSNAME) OSNAME_LC=$(OSNAME_LC) HWARCH=$(HWARCH) MAKE_CMD=$(MAKE_CMD) INCLUDE_LOC=$(INCLUDE_LOC) LIBRARY_LOC=$(LIBRARY_LOC) $(XPI_TGT)
++	CFLAGS="$(CFLAGS)" $(MAKE_CMD) -f $(CMAKE_SOURCE_DIR)/$(MAKE_OS) OSNAME=$(OSNAME) OSNAME_LC=$(OSNAME_LC) HWARCH=$(HWARCH) MAKE_CMD=$(MAKE_CMD) INCLUDE_LOC=$(INCLUDE_LOC) LIBRARY_LOC=$(LIBRARY_LOC) STATIC_LINKING=$(STATIC_LINKING) $(CORE_TGT) CMAKE_SOURCE_DIR=$(CMAKE_SOURCE_DIR)
++	CFLAGS="$(CFLAGS)" $(MAKE_CMD) -f $(CMAKE_SOURCE_DIR)/$(MAKE_OS) OSNAME=$(OSNAME) OSNAME_LC=$(OSNAME_LC) HWARCH=$(HWARCH) MAKE_CMD=$(MAKE_CMD) INCLUDE_LOC=$(INCLUDE_LOC) LIBRARY_LOC=$(LIBRARY_LOC) $(XPI_TGT) CMAKE_SOURCE_DIR=$(CMAKE_SOURCE_DIR)
+ 
+ # Cleans built files.
+ clean:
+-	$(MAKE_CMD) -f Makefile.static_libs clean-static-libs
++	$(MAKE_CMD) -f $(CMAKE_SOURCE_DIR)/Makefile.static_libs clean-static-libs
+ 	rm -rf $(FIREBREATH_DIR)
+ 	rm -rf CMakeCache.txt CMakeFiles/ cmake_install.cmake
+ 
+ # Cleans even more.
+ scour: clean
+-	$(MAKE_CMD) -f Makefile.static_libs scour-static-libs
++	$(MAKE_CMD) -f $(CMAKE_SOURCE_DIR)/Makefile.static_libs scour-static-libs
