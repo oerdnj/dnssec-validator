@@ -1,5 +1,5 @@
 dnssec-validator (2.1.1+git651-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release (Closes: #672845)
 
  -- Ondřej Surý <ondrej@debian.org>  Mon, 21 Jul 2014 19:45:21 +0200
