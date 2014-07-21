@@ -21,5 +21,12 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 %:
 	dh $@ --with xul-ext --parallel --buildsystem=autoconf
 
+override_dh_auto_configure:
+	chmod +x configure
+	dh_auto_configure
+
+override_dh_auto_install:
+	:
+
 override_dh_install:
 	install-xpi dnssec.xpi
