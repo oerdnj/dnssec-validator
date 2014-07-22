@@ -1,12 +1,24 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: DNSSEC Validator
 Upstream-Contact: dnssec-validator-users@lists.nic.cz
-Source: https://gitweb.labs.nic.cz/?p=dnssec-validator
+Source: https://gitlab.labs.nic.cz/labs/dnssec-validator
  
 Files: *
 Copyright: 2010-2012 CZ.NIC, z.s.p.o.
-License: GPL-3+
+License: GPL-3+-with-OpenSSL-exception
  
-License: GPL-3+
+License: GPL-3+-with-OpenSSL-exception
  On Debian systems, the full text of the GNU General Public License
  version 3 can be found in the file `/usr/share/common-licenses/GPL-3'.
+ .
+ Additional permission under GNU GPL version 3 section 7
+ .
+ In addition, as a special exception, copyright holders gives
+ permission to link the code of the Program with the OpenSSL project's
+ "OpenSSL" library (or with modified versions of it that use the same
+ license as the "OpenSSL" library), and distribute the linked
+ executables. You must obey the GNU General Public License in all
+ respects for all of the code used other than "OpenSSL".  If you
+ modify this file, you may extend this exception to your version of
+ the file, but you are not obligated to do so. If you do not wish to
+ do so, delete this exception statement from your version.
