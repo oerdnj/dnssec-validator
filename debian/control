@@ -6,7 +6,7 @@ Uploaders: Ondřej Surý <ondrej@debian.org>,
 	   David Prévot <taffit@debian.org>
 Build-Depends: debhelper (>= 9),
 	       autotools-dev,
-	       libldns-dev,
+	       libldns-dev (>= 1.6.16),
 	       libssl-dev,
 	       libunbound-dev,
 	       mozilla-devscripts
